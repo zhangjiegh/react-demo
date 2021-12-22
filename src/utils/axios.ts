@@ -1,7 +1,7 @@
 /**
  *  参考 https://github.com/zhangjiegh/iview-admin/blob/master/src/libs/api.request.js
  */
-import axios, {AxiosInstance, AxiosRequestConfig} from "axios";
+import axios, { AxiosInstance, AxiosRequestConfig } from "axios";
 import type { HttpErrorLog } from "types";
 const addErrorLog = (errorInfo: HttpErrorLog) => {
   const {
@@ -19,10 +19,10 @@ const addErrorLog = (errorInfo: HttpErrorLog) => {
 };
 
 class HttpRequest {
-    baseUrl:any
-
-    queue:any={}
-  constructor(baseUrl:any) {
+  baseUrl: any;
+  queue: any = {};
+  
+  constructor(baseUrl: any) {
     this.baseUrl = baseUrl;
     this.queue = {};
   }
@@ -37,14 +37,14 @@ class HttpRequest {
     return config;
   }
 
-  destroy(url:string) {
+  destroy(url: string) {
     delete this.queue[url];
     if (!Object.keys(this.queue).length) {
       // Spin.hide()
     }
   }
 
-  interceptors(instance:AxiosInstance, url:string) {
+  interceptors(instance: AxiosInstance, url: string) {
     // 请求拦截
     instance.interceptors.request.use(
       config => {
@@ -89,7 +89,7 @@ class HttpRequest {
   request(options: AxiosRequestConfig<any>) {
     const instance = axios.create();
     options = Object.assign(this.getInsideConfig(), options);
-    this.interceptors(instance, options.url||'');
+    this.interceptors(instance, options.url || "");
     return instance(options);
   }
 }
