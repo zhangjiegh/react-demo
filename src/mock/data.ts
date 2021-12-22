@@ -1,7 +1,6 @@
 import Mock from "mockjs";
-import getParams from "../utils/tool";
-import {UserGroup} from "../types/user";
-
+import getParams from "utils/tool";
+import { UserGroup } from "types/user";
 
 const USER_MAP: UserGroup = {
   super_admin: {

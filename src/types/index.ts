@@ -1,2 +1,4 @@
 import { HttpErrorLog } from "./http";
-export type { HttpErrorLog };
+import { UserGroup } from "./user";
+
+export type { HttpErrorLog, UserGroup };
